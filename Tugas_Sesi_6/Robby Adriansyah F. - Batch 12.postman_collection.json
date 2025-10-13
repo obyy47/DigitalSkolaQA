@@ -1,0 +1,446 @@
+{
+	"info": {
+		"_postman_id": "d7d6d7ad-f0d2-4e6a-8902-26b94212820a",
+		"name": "Robby Adriansyah F. - Batch 12",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48801725",
+		"_collection_link": "https://robbyadriansyah7-4307495.postman.co/workspace/Robby-Adriansyah's-Workspace~ca6421c0-aa8a-41d8-8096-061dac45633d/collection/48801725-d7d6d7ad-f0d2-4e6a-8902-26b94212820a?action=share&source=collection_link&creator=48801725"
+	},
+	"item": [
+		{
+			"name": "GET Single User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate response for upgrade_url\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData._meta.upgrade_url).to.eql(\"https://app.reqres.in/upgrade\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate response for email\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data.email).to.eql(\"janet.weaver@reqres.in\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"const schema = {\r",
+							"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+							"    \"title\": \"Generated schema for Root\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\": {\r",
+							"        \"data\": {\r",
+							"            \"type\": \"object\",\r",
+							"            \"properties\": {\r",
+							"                \"id\": {\r",
+							"                    \"type\": \"number\"\r",
+							"                },\r",
+							"                \"email\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"first_name\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"last_name\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"avatar\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                }\r",
+							"            },\r",
+							"            \"required\": [\r",
+							"                \"id\",\r",
+							"                \"email\",\r",
+							"                \"first_name\",\r",
+							"                \"last_name\",\r",
+							"                \"avatar\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"support\": {\r",
+							"            \"type\": \"object\",\r",
+							"            \"properties\": {\r",
+							"                \"url\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"text\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                }\r",
+							"            },\r",
+							"            \"required\": [\r",
+							"                \"url\",\r",
+							"                \"text\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"_meta\": {\r",
+							"            \"type\": \"object\",\r",
+							"            \"properties\": {\r",
+							"                \"powered_by\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"upgrade_url\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"docs_url\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"template_gallery\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"message\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                },\r",
+							"                \"features\": {\r",
+							"                    \"type\": \"array\",\r",
+							"                    \"items\": {\r",
+							"                        \"type\": \"string\"\r",
+							"                    }\r",
+							"                },\r",
+							"                \"upgrade_cta\": {\r",
+							"                    \"type\": \"string\"\r",
+							"                }\r",
+							"            },\r",
+							"            \"required\": [\r",
+							"                \"powered_by\",\r",
+							"                \"upgrade_url\",\r",
+							"                \"docs_url\",\r",
+							"                \"template_gallery\",\r",
+							"                \"message\",\r",
+							"                \"features\",\r",
+							"                \"upgrade_cta\"\r",
+							"            ]\r",
+							"        }\r",
+							"    },\r",
+							"    \"required\": [\r",
+							"        \"data\",\r",
+							"        \"support\",\r",
+							"        \"_meta\"\r",
+							"    ]\r",
+							"}\r",
+							"pm.test(\"Validate schema\", () => {\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://reqres.in/api/users/2 ",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2 "
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+							"    \"title\": \"Generated schema for Root\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\": {\r",
+							"        \"name\": {\r",
+							"            \"type\": \"string\"\r",
+							"        },\r",
+							"        \"job\": {\r",
+							"            \"type\": \"string\"\r",
+							"        }\r",
+							"    },\r",
+							"    \"required\": [\r",
+							"        \"name\",\r",
+							"        \"job\"\r",
+							"    ]\r",
+							"}\r",
+							"pm.test(\"Validate schema\", () => {\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate response for name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"morpheus\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"leader\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 230ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(230);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion resident\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 230ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(225);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "nyobain VARIABLE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// pm.variables.set(\"Nama\", \"John Doe local\"); \r",
+							"// let value = pm.variables.get(\"Nama\")\r",
+							"// console.log(\"Ini value dari: \" + value)\r",
+							"\r",
+							"// pm.environment.set(\"Nama\", \"John Doe environment\"); \r",
+							"// let value = pm.variables.get(\"Nama\")\r",
+							"// console.log(\"Ini value dari: \" + value)\r",
+							"\r",
+							"// pm.collectionVariables.set(\"Nama\", \"John Doe collection\"); \r",
+							"// let value = pm.variables.get(\"Nama\")\r",
+							"// console.log(\"Ini value dari: \" + value)\r",
+							"\r",
+							"pm.globals.set(\"Nama\", \"John Doe globals\"); \r",
+							"let value = pm.variables.get(\"Nama\")\r",
+							"console.log(\"Ini value dari: \" + value)\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://reqres.in/api/users?page= {{page}}",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": " {{page}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Nama",
+			"value": "John Doe collection"
+		},
+		{
+			"key": "Hobby",
+			"value": "Hiking"
+		}
+	]
+}
