@@ -1,0 +1,295 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-20T13:44:04.676Z",
+    "end": "2025-10-20T13:44:06.269Z",
+    "duration": 1593,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "741a3fb5-67fc-40a1-ac89-f55a2c0a3777",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f44088e9-1b58-42ab-a8ea-384004ac1a7f",
+          "title": "DELETE User API",
+          "fullFile": "D:\\Bootcamp Digital Skola\\DigitalSkolaQA\\Tugas_Sesi_7\\API Automation - Robby\\test\\DELETEusers.test.js",
+          "file": "\\test\\DELETEusers.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should delete user successfully",
+              "fullTitle": "DELETE User API should delete user successfully",
+              "timedOut": false,
+              "duration": 335,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let response = await request(baseUrl)\n    .delete('/api/users/2')\n    .set('x-api-key', 'reqres-free-v1')\nconsole.log('Status code:', response.status)\nexpect(response.status).to.equal(204)",
+              "err": {},
+              "uuid": "7432d329-7f13-4b6a-ac6e-ec6c7c797e74",
+              "parentUUID": "f44088e9-1b58-42ab-a8ea-384004ac1a7f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7432d329-7f13-4b6a-ac6e-ec6c7c797e74"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 335,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "490fac0c-4c9d-4c07-a2f5-c9a3f6195d74",
+          "title": "GET List Users API",
+          "fullFile": "D:\\Bootcamp Digital Skola\\DigitalSkolaQA\\Tugas_Sesi_7\\API Automation - Robby\\test\\GETlistUsers.test.js",
+          "file": "\\test\\GETlistUsers.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should return list of users",
+              "fullTitle": "GET List Users API should return list of users",
+              "timedOut": false,
+              "duration": 102,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let response = await request(baseUrl).get('/api/users?page=2')\nconsole.log('Status code:', response.status)\nconsole.log('Response body:', JSON.stringify(response.body, null, 2))\nconsole.log(response.body)\nexpect(response.status).to.equal(200)\nexpect(response.body).to.have.property('data')\nexpect(response.body.data).to.be.an('array')",
+              "err": {},
+              "uuid": "44cfa8af-1cf8-4ab1-9b53-a2a302902a69",
+              "parentUUID": "490fac0c-4c9d-4c07-a2f5-c9a3f6195d74",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "44cfa8af-1cf8-4ab1-9b53-a2a302902a69"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 102,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "f947d626-2f16-4839-8014-31e3701ee74f",
+          "title": "GET Single Users API",
+          "fullFile": "D:\\Bootcamp Digital Skola\\DigitalSkolaQA\\Tugas_Sesi_7\\API Automation - Robby\\test\\GETsingleUsers.test.js",
+          "file": "\\test\\GETsingleUsers.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should return of single user",
+              "fullTitle": "GET Single Users API should return of single user",
+              "timedOut": false,
+              "duration": 97,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let response = await request(baseUrl).get('/api/users/2')\nconsole.log('Status code:', response.status)\nconsole.log('Response body:', JSON.stringify(response.status, null, 2))\nconsole.log(response.body)\nexpect(response.status).to.equal(200)\nexpect(response.body).to.have.property('data')\nexpect(response.body.data).to.be.an('object')",
+              "err": {},
+              "uuid": "a15e5d5a-5cdf-448b-9294-457f5f2a65b5",
+              "parentUUID": "f947d626-2f16-4839-8014-31e3701ee74f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a15e5d5a-5cdf-448b-9294-457f5f2a65b5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 97,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "586d532c-a448-437f-9952-d63a58857d0b",
+          "title": "PATCH Update User API",
+          "fullFile": "D:\\Bootcamp Digital Skola\\DigitalSkolaQA\\Tugas_Sesi_7\\API Automation - Robby\\test\\PATCHusers.test.js",
+          "file": "\\test\\PATCHusers.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should update user data successfully",
+              "fullTitle": "PATCH Update User API should update user data successfully",
+              "timedOut": false,
+              "duration": 301,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let response = await request(baseUrl)\n    .patch('/api/users/2')\n    .set('x-api-key', 'reqres-free-v1')\n    .send({\n        job: 'Backend Developer'\n    })\nconsole.log('Status code:', response.status)\nconsole.log('Response body:', JSON.stringify(response.body, null, 2))\nexpect(response.status).to.equal(200)\nexpect(response.body).to.have.property('job', 'Backend Developer')\nexpect(response.body).to.have.property('updatedAt')",
+              "err": {},
+              "uuid": "57f7bf32-629c-4e67-a250-0a26fb9e99e6",
+              "parentUUID": "586d532c-a448-437f-9952-d63a58857d0b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "57f7bf32-629c-4e67-a250-0a26fb9e99e6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 301,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "867efa81-8726-4eb9-8379-1adcbe4fa24a",
+          "title": "POST Create User API",
+          "fullFile": "D:\\Bootcamp Digital Skola\\DigitalSkolaQA\\Tugas_Sesi_7\\API Automation - Robby\\test\\POSTusers.test.js",
+          "file": "\\test\\POSTusers.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should create a new user successfully",
+              "fullTitle": "POST Create User API should create a new user successfully",
+              "timedOut": false,
+              "duration": 281,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const payload = {\n    name: 'Robby',\n    job: 'Backend QA'\n}\nconst response = await request(baseUrl)\n    .post('/api/users')\n    .set('x-api-key', 'reqres-free-v1')\n    .send(payload)\nconsole.log('Status code:', response.status);\nconsole.log('Response body:', JSON.stringify(response.body, null, 2))\nexpect(response.status).to.equal(201)\nexpect(response.body).to.have.property('name', payload.name)\nexpect(response.body).to.have.property('job', payload.job)\nexpect(response.body).to.have.property('id')\nexpect(response.body).to.have.property('createdAt')",
+              "err": {},
+              "uuid": "527ba1aa-034a-4ef5-9515-26aa69fdcf1b",
+              "parentUUID": "867efa81-8726-4eb9-8379-1adcbe4fa24a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "527ba1aa-034a-4ef5-9515-26aa69fdcf1b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 281,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "b91a31a3-8612-4037-b360-1e4e12c70666",
+          "title": "PUT Update User API",
+          "fullFile": "D:\\Bootcamp Digital Skola\\DigitalSkolaQA\\Tugas_Sesi_7\\API Automation - Robby\\test\\PUTusers.test.js",
+          "file": "\\test\\PUTusers.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should replace user data successfully",
+              "fullTitle": "PUT Update User API should replace user data successfully",
+              "timedOut": false,
+              "duration": 465,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let response = await request(baseUrl)\n    .put('/api/users/2')\n    .set('x-api-key', 'reqres-free-v1')\n    .send({\n        name: 'Robby',\n        job: 'Fullstack Engineer'\n    })\nconsole.log('Status code:', response.status)\nconsole.log('Response body:', JSON.stringify(response.body, null, 2))\nexpect(response.status).to.equal(200)\nexpect(response.body).to.have.property('name', 'Robby')\nexpect(response.body).to.have.property('job', 'Fullstack Engineer')\nexpect(response.body).to.have.property('updatedAt')",
+              "err": {},
+              "uuid": "5e42465c-7866-4f0c-808f-16c19707a670",
+              "parentUUID": "b91a31a3-8612-4037-b360-1e4e12c70666",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5e42465c-7866-4f0c-808f-16c19707a670"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 465,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.4"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.0"
+    }
+  }
+}
