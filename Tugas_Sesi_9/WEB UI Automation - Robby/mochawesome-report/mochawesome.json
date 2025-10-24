@@ -1,0 +1,138 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-24T18:37:53.030Z",
+    "end": "2025-10-24T18:37:59.665Z",
+    "duration": 6635,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "01a9f94e-8184-485b-a45c-3c4a09da2ab9",
+      "title": "",
+      "fullFile": "D:\\Bootcamp Digital Skola\\DigitalSkolaQA\\Tugas_Sesi_9\\WEB UI Automation - Robby\\test\\sesi_9.js",
+      "file": "\\test\\sesi_9.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d09e999f-fcbf-4655-8408-3ba56bfc7b93",
+          "title": "Tugas Sesi 9",
+          "fullFile": "D:\\Bootcamp Digital Skola\\DigitalSkolaQA\\Tugas_Sesi_9\\WEB UI Automation - Robby\\test\\sesi_9.js",
+          "file": "\\test\\sesi_9.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visit web SauceDemo dan cek page title",
+              "fullTitle": "Tugas Sesi 9 Visit web SauceDemo dan cek page title",
+              "timedOut": false,
+              "duration": 3706,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('firefox').build()\nawait driver.get('https://www.saucedemo.com/')\nconst title = await driver.getTitle()\nassert.strictEqual(title, 'Swag Labs')",
+              "err": {},
+              "uuid": "f1dd2c6a-4e2d-4326-8ebc-60fc35eb8277",
+              "parentUUID": "d09e999f-fcbf-4655-8408-3ba56bfc7b93",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "User sukses ketika Login",
+              "fullTitle": "Tugas Sesi 9 User sukses ketika Login",
+              "timedOut": false,
+              "duration": 365,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.findElement(By.id('user-name')).sendKeys('standard_user')\nawait driver.findElement(By.xpath('//*[@id=\"password\"]')).sendKeys('secret_sauce')\nawait driver.findElement(By.css('[data-test=\"login-button\"]')).click()\nconst currentUrl = await driver.getCurrentUrl()\nassert.ok(currentUrl.includes('inventory'), 'Login gagal, URL tidak sesuai')\nconst menuButton = await driver.findElement(By.id('react-burger-menu-btn'))\nassert.strictEqual(await menuButton.isDisplayed(), true, 'Login gagal, tombol menu tidak terlihat')",
+              "err": {},
+              "uuid": "8a391cf0-a2d3-4782-986f-7aefc92aba1e",
+              "parentUUID": "d09e999f-fcbf-4655-8408-3ba56bfc7b93",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "User berhasil menggunakan menu Sorting (Z-A, low to high, high to low)",
+              "fullTitle": "Tugas Sesi 9 User berhasil menggunakan menu Sorting (Z-A, low to high, high to low)",
+              "timedOut": false,
+              "duration": 2555,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// === SORTING Z → A ===\nlet sortDropdown = await driver.findElement(By.css('.product_sort_container'))\nawait sortDropdown.sendKeys('Name (Z to A)')\nawait driver.sleep(500)\nawait driver.wait(until.elementsLocated(By.css('.inventory_item_name')), 5000)\nlet productNameElements = await driver.findElements(By.css('.inventory_item_name'))\nlet productNames = await Promise.all(productNameElements.map(el => el.getText()))\nlet expectedNames = [...productNames].sort().reverse()\nconsole.log('\\n=== Sorting Z → A ===')\nconsole.log('Actual:', productNames)\nconsole.log('Expected:', expectedNames)\nassert.deepStrictEqual(productNames, expectedNames, 'Sorting Z-A tidak sesuai')\n// === SORTING PRICE: LOW → HIGH ===\nsortDropdown = await driver.findElement(By.css('.product_sort_container')) // sekarang aman\nawait sortDropdown.sendKeys('Price (low to high)')\nawait driver.sleep(500)\nawait driver.wait(until.elementsLocated(By.css('.inventory_item_price')), 5000)\nlet priceElementsLow = await driver.findElements(By.css('.inventory_item_price'))\nlet priceValuesLow = await Promise.all(priceElementsLow.map(async el => {\n    return parseFloat((await el.getText()).replace('$', ''))\n}))\nlet expectedLow = [...priceValuesLow].sort((a, b) => a - b)\nconsole.log('\\n=== Sorting Price Low → High ===')\nconsole.log('Actual:', priceValuesLow)\nconsole.log('Expected:', expectedLow)\nassert.deepStrictEqual(priceValuesLow, expectedLow, 'Sorting Low→High tidak sesuai')\n// === SORTING PRICE: HIGH → LOW ===\nsortDropdown = await driver.findElement(By.css('.product_sort_container'))\nawait sortDropdown.sendKeys('Price (high to low)')\nawait driver.sleep(500)\nawait driver.wait(until.elementsLocated(By.css('.inventory_item_price')), 5000)\nlet priceElementsHigh = await driver.findElements(By.css('.inventory_item_price'))\nlet priceValuesHigh = await Promise.all(priceElementsHigh.map(async el => {\n    return parseFloat((await el.getText()).replace('$', ''))\n}))\nlet expectedHigh = [...priceValuesHigh].sort((a, b) => b - a)\nconsole.log('\\n=== Sorting Price High → Low ===')\nconsole.log('Actual:', priceValuesHigh)\nconsole.log('Expected:', expectedHigh)\nassert.deepStrictEqual(priceValuesHigh, expectedHigh, 'Sorting High→Low tidak sesuai')\nawait driver.quit()",
+              "err": {},
+              "uuid": "c8f394ba-8ed9-4f99-baf5-a8df845f83bd",
+              "parentUUID": "d09e999f-fcbf-4655-8408-3ba56bfc7b93",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f1dd2c6a-4e2d-4326-8ebc-60fc35eb8277",
+            "8a391cf0-a2d3-4782-986f-7aefc92aba1e",
+            "c8f394ba-8ed9-4f99-baf5-a8df845f83bd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6626,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.4"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.0"
+    }
+  }
+}
