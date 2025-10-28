@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test --timeout 60000 --reporter mochawesome",
-    "test:simple": "mocha test --timeout 60000 --reporter mocha-simple-html-reporter"
+    "test-sesi9": "mocha --recursive test/Sesi_9 --timeout 60000 --reporter mochawesome",
+    "test-sesi10": "mocha --recursive test/Sesi_10 --timeout 60000 --reporter mochawesome"
   },
   "keywords": [],
   "author": "",
