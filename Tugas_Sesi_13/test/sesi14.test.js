@@ -115,3 +115,5 @@ describe("API Demo Testing", () => {
     await target.click();
   });
 });
+
+// Sesi 14 - Advance Mobile with Appium
