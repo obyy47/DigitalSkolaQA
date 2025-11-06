@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "wdio run wdio.conf.js",
+    "test13": "wdio run wdio.conf.js --spec ./test/appdemo.test.js",
+    "test14": "wdio run wdio.conf.js --spec ./test/sesi14.test.js",
     "allure:generate": "allure generate allure-results -o allure-report",
     "allure:open": "allure open allure-report"
   },
