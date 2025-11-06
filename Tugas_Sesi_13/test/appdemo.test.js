@@ -40,8 +40,11 @@ describe("API Demo Testing", () => {
 
     const appMenu = await $('//*[@text="App"]');
     await appMenu.waitForDisplayed({ timeout: 60000 });
+    await appMenu.waitForDisplayed();
     await appMenu.click();
 
     console.log("BERHASIL KLIK MENU APP!");
   });
 });
+
+//
