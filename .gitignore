@@ -1,1 +1,6 @@
+# Dependencies
 node_modules/
+
+# Allure Reports
+allure-report/
+allure-results/
